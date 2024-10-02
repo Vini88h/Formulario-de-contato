@@ -1,0 +1,50 @@
+class Carro {
+    String modelo;
+    String cor;
+    int ano;
+
+    Carro(String modelo, String cor, int ano) {
+        this.modelo = modelo;
+        this.cor = cor;
+        this.ano = ano;
+    }
+}
+
+class Pessoa {
+    String nome;
+    Carro carro; // Pessoa pode ter um carro associado
+
+    Pessoa(String nome) {
+        this.nome = nome;
+    }
+
+    // Método para associar um carro à pessoa
+    void setCarro(Carro carro) {
+        this.carro = carro;
+    }
+
+    void dirigir() {
+        if (carro != null) {
+            System.out.println(nome + " está dirigindo o " + carro.modelo + " de cor " + carro.cor + " do ano " + carro.ano);
+        } else {
+            System.out.println(nome + " não tem um carro para dirigir.");
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Carro carro1 = new Carro("Toyota", "Prata", 2021);
+        Carro carro2 = new Carro("Honda", "Preto", 2023);
+
+        Pessoa pessoa = new Pessoa("João");
+
+        // João pode dirigir o carro1
+        pessoa.setCarro(carro1);
+        pessoa.dirigir();
+
+        // João troca de carro e dirige o carro2
+        pessoa.setCarro(carro2);
+        pessoa.dirigir();
+    }
+}
